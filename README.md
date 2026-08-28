@@ -1,4 +1,4 @@
-# Deep Thinking（深度思考引擎）
+# Deep Thinking v2（深度思考引擎）
 
 > v2.0.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
 
@@ -15,12 +15,12 @@
 ```bash
 # 克隆到 WorkBuddy 用户级技能目录
 git clone https://github.com/landfen/deep-thinking-prompts.git \
-  ~/.workbuddy/skills/deep-thinking
+  ~/.workbuddy/skills/deep-thinking-v2
 ```
 
-重启会话后即生效。触发方式：直接描述需求，或 @skill:deep-thinking。
+重启会话后即生效。触发方式：直接描述需求，或 @skill:deep-thinking-v2。
 
-> 仓库名沿用 v1.x 的 `deep-thinking-prompts`，但目录请命名为 `deep-thinking`——skill 名由 `SKILL.md` frontmatter 的 `name` 字段决定，与目录名保持一致即可正确加载。
+> 仓库名沿用 v1.x 的 `deep-thinking-prompts`，但目录请命名为 `deep-thinking-v2`——skill 名由 `SKILL.md` frontmatter 的 `name` 字段决定（当前为 `deep-thinking-v2`），与目录名保持一致即可正确加载。
 
 ```
 任务输入 -> ① 分级判定（轻/中/重三级火力）
@@ -45,7 +45,7 @@ git clone https://github.com/landfen/deep-thinking-prompts.git \
 ## 目录结构
 
 ```text
-deep-thinking/
+deep-thinking-v2/
 ├── SKILL.md                  # 主入口：六步引擎 + 四层路由表 + 执行注意事项
 ├── README.md
 └── references/
