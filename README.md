@@ -1,14 +1,12 @@
 # Deep Thinking v2（深度思考引擎）
 
-> v2.0.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
+> v2.1.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
 
-![Version](https://img.shields.io/badge/version-v2.0.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-v2.1.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 这是什么
 
 一个以经典思维工具为内核的自动思维引擎。三个最终目的：**检索答案更准、问答切中要害、决策建议不平庸**。
-
-安装后不需要点名调用--AI 接到任务后自动执行六步引擎：
 
 ## 快速开始
 
@@ -22,6 +20,8 @@ git clone https://github.com/landfen/deep-thinking-prompts.git \
 
 > 仓库名沿用 v1.x 的 `deep-thinking-prompts`，但目录请命名为 `deep-thinking-v2`——skill 名由 `SKILL.md` frontmatter 的 `name` 字段决定（当前为 `deep-thinking-v2`），与目录名保持一致即可正确加载。
 
+安装后不需要点名调用--AI 接到任务后自动执行六步引擎：
+
 ```
 任务输入 -> ① 分级判定（轻/中/重三级火力）
          -> ② 环节诊断（拆解/检索/聚合，哪环弱？）
@@ -31,13 +31,13 @@ git clone https://github.com/landfen/deep-thinking-prompts.git \
          -> ⑥ 带落款交付（工具 + 诊断 + 置信度 + 缺口，全级显示）
 ```
 
-## 21 件思维工具 · 四层结构
+## 23 件思维工具 · 四层结构
 
 | 层 | 工具 | 治什么 |
 |---|---|---|
 | 一、理解问题层 | 第一性原理★、奥卡姆剃刀★/汉隆剃刀、二阶思维★、5 Whys、MECE、假设澄清、后向推理、苏格拉底式提问 | 问题没问对 |
-| 二、检索质量层 | SIFT 横向阅读、贝叶斯更新、时效核查(T0/R1-R5)、价格专项(P1-P4)、刨根问底、横纵分析法、事实核查 | 检索不准不深 |
-| 三、回答质量层 | 双层解释法、多专家会诊、反向拆解、跨领域借解 | 回答停在表面 |
+| 二、检索质量层 | SIFT 横向阅读、贝叶斯更新、时效核查(T0/R1-R5)、价格专项(P1-P4)、刨根问底、检索执行层(并行搜索/R1 正文抓取/官方直达)、横纵分析法、事实核查 | 检索不准不深不快 |
+| 三、回答质量层 | 双层解释法、多专家会诊、反向拆解、跨领域借解、答前自检、自我红队 | 回答停在表面 |
 | 四、决策质量层 | 逆向思维★、机会成本★、安全边际★、可逆性测试、WRAP、预验尸、双向钢人论证、最小实验 | 建议平庸和稀泥 |
 
 ★ = 用户核心 6 把。决策类重任务强制执行「逆向压测 -> 机会成本 -> 安全边际」三连。
@@ -56,6 +56,7 @@ deep-thinking-v2/
     ├── decision-making.md    # 双向钢人论证/最小实验（原模板）
     ├── self-knowledge.md     # 隐藏天赋/人生设计术（原模板）
     ├── search-freshness.md   # 时效核查协议（v1.3.0 整体继承，含 P1-P4）
+    ├── search-execution.md   # 检索执行层协议（v2.1.0 新增：并行搜索/R1 正文抓取/官方直达/证据日志）
     └── root-digging.md       # 刨根问底协议（v1.3.0 整体继承）
 ```
 
@@ -77,6 +78,13 @@ deep-thinking-v2/
 - 两个暂停点（P1 真问题、P2 关键变量）
 - 全级诊断落款（重任务四行版）
 - 双层解释法与多专家会诊点名保留；时效核查与刨根问底协议整体继承
+
+## 升级说明（v2.0.0 -> v2.1.0）
+
+- 新增 `references/search-execution.md` 检索执行层协议：敏感型首轮 3～4 路并行搜索、时间锚点前置、R1 正文抓取工具化、官方直达表、追加搜索升级为阶梯式 3 轮、证据日志统一格式
+- 新增第三层两件工具：答前自检（§22，交付前 30 秒三问）与自我红队（§23，攻 3 补 2，与预验尸构成双闸）
+- 时效/刨根两协议与执行层互相引用，形成「判定规则 + 执行动作」闭环
+- 修复：toolbox.md 四层协作关系重复行、SKILL.md description 工具计数（18->23）、README 六步流程代码块丢失引导句
 
 ## 来源
 
