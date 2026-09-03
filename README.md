@@ -1,8 +1,8 @@
 # Deep Thinking v2（深度思考引擎）
 
-> v2.1.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
+> v2.2.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
 
-![Version](https://img.shields.io/badge/version-v2.1.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-v2.2.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 这是什么
 
@@ -31,7 +31,7 @@ git clone https://github.com/landfen/deep-thinking-prompts.git \
          -> ⑥ 带落款交付（工具 + 诊断 + 置信度 + 缺口，全级显示）
 ```
 
-## 23 件思维工具 · 四层结构
+## 25 件思维工具 · 五层结构
 
 | 层 | 工具 | 治什么 |
 |---|---|---|
@@ -39,6 +39,7 @@ git clone https://github.com/landfen/deep-thinking-prompts.git \
 | 二、检索质量层 | SIFT 横向阅读、贝叶斯更新、时效核查(T0/R1-R5)、价格专项(P1-P4)、刨根问底、检索执行层(并行搜索/R1 正文抓取/官方直达)、横纵分析法、事实核查 | 检索不准不深不快 |
 | 三、回答质量层 | 双层解释法、多专家会诊、反向拆解、跨领域借解、答前自检、自我红队 | 回答停在表面 |
 | 四、决策质量层 | 逆向思维★、机会成本★、安全边际★、可逆性测试、WRAP、预验尸、双向钢人论证、最小实验 | 建议平庸和稀泥 |
+| 五、编码工程层 | 轮子判定器、四类检索扫描、GitHub 深度搜索、五维评分、对比表拍板 | 新人重复造轮子 |
 
 ★ = 用户核心 6 把。决策类重任务强制执行「逆向压测 -> 机会成本 -> 安全边际」三连。
 
@@ -57,6 +58,7 @@ deep-thinking-v2/
     ├── self-knowledge.md     # 隐藏天赋/人生设计术（原模板）
     ├── search-freshness.md   # 时效核查协议（v1.3.0 整体继承，含 P1-P4）
     ├── search-execution.md   # 检索执行层协议（v2.1.0 新增：并行搜索/R1 正文抓取/官方直达/证据日志）
+    ├── code-engineering.md   # 编码工程层协议（v2.2.0 新增：轮子判定/四类检索/五维评分/对比表拍板）
     └── root-digging.md       # 刨根问底协议（v1.3.0 整体继承）
 ```
 
@@ -85,6 +87,17 @@ deep-thinking-v2/
 - 新增第三层两件工具：答前自检（§22，交付前 30 秒三问）与自我红队（§23，攻 3 补 2，与预验尸构成双闸）
 - 时效/刨根两协议与执行层互相引用，形成「判定规则 + 执行动作」闭环
 - 修复：toolbox.md 四层协作关系重复行、SKILL.md description 工具计数（18->23）、README 六步流程代码块丢失引导句
+
+## 升级说明（v2.1.0 -> v2.2.0）
+
+- 新增 `references/code-engineering.md` 编码工程层协议，治「新人重复造轮子」：
+  - 轮子判定器：编码需求三分流——通用功能（认证/支付/爬虫/文档解析等 15 类清单）强制检索、整项目需求查基座与同类产品、业务胶水脚本直写并落款注明
+  - 四类检索目标 MECE 扫描：同类产品 → 基座脚手架 → 成熟库 → 最佳实践（D→B→A→C）
+  - GitHub 深度搜索动作：stars/pushed/language 过滤语法 + awesome 清单顺藤摸瓜 + 候选 README 正文核查（R1）
+  - 五维评分标准（100 分制，新人加权）：维护活跃 30 / 文档友好 25 / 成熟度 20 / 场景契合 15 / License 10，含一票否决（归档/停更/License 缺失）
+  - 交付格式：结论先行 + 对比表 + 自研 vs 借力说明，用户拍板前不写业务代码
+- search-execution.md 官方直达表扩充「开源方案/库」品类，与编码层 §3 打通
+- SKILL.md 路由表新增第五层（5 件工具，总计数 23->25），执行注意事项新增「编码任务双闸门」
 
 ## 来源
 
