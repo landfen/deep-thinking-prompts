@@ -1,8 +1,8 @@
 # Deep Thinking v2（深度思考引擎）
 
-> v2.2.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
+> v2.3.0。前身 deep-thinking-prompts v1.3.0（13 模板）推倒重构而来：从「用户手动点名的模板箱」进化为「AI 干活时自动调用的思维引擎」。
 
-![Version](https://img.shields.io/badge/version-v2.2.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-v2.3.0-blue) ![Platform](https://img.shields.io/badge/platform-WorkBuddy%20%2F%20Claude%20Code%20%2F%20通用-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 这是什么
 
@@ -98,6 +98,17 @@ deep-thinking-v2/
   - 交付格式：结论先行 + 对比表 + 自研 vs 借力说明，用户拍板前不写业务代码
 - search-execution.md 官方直达表扩充「开源方案/库」品类，与编码层 §3 打通
 - SKILL.md 路由表新增第五层（5 件工具，总计数 23->25），执行注意事项新增「编码任务双闸门」
+
+## 升级说明（v2.2.0 -> v2.3.0）
+
+> 自我红队审查（攻 3 补 2）发现 P0/P1 六项，本版全部修复。
+
+- **轮子记忆**（P0-2，新增 §6）：检索结论沉淀为 `[轮子记忆]` 条目（默认 6 个月有效，框架类 3 个月），同类需求命中即复用跳过检索；含黑名单机制与实战回写校准闭环（翻车降分/拉黑，好用延期）
+- **GitHub 搜索动作绑定工具**（P0-1，§3 重写）：首选 GitHub API（`api.github.com/search/repositories`，结构化 JSON 无反爬，匿名限流 10 次/分超限降级），次选网页直抓，再降级 WebSearch——规则必须落到 AI 实际可用的工具上，防 v2.1.0 式「规则完备但动作空转」复发
+- **供应链安全**（P0-3，§4 附则）：包名与 PyPI/npm 官方页逐字核对防 typosquatting、周下载 <1 万标注谨慎、陌生包须附「为什么信它」
+- **打分证据纪律**（P1，§4）：每个维度分数必须附一句证据引用，给不出证据按最低档计——宁粗档+证据，不细档+拍脑袋
+- **判级兜底**（P1，§1）：判级拿不准宁检索勿漏（检索分钟级 vs 造错轮子小时级）；新手模糊需求默认项目级
+- **AI 友好度**（P2，§4 注）：主流库训练数据丰富、AI 生成代码质量高，计入成熟度维度实际价值
 
 ## 来源
 
